@@ -4,42 +4,43 @@
 <head>
   <meta charset="utf-8">
   <title>Random Tangram Image</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <style>
     body { overflow: hidden; }
     #body {
-	  position: absolute;
-	  top: 0; left: 0; bottom: 0; right: 0;
+      position: absolute;
+      top: 0; left: 0; bottom: 0; right: 0;
       background: center center no-repeat;
-	  overflow: hidden;
+      overflow: hidden;
     }
-	#num, #msg {
-	  position: relative;
-	  left: calc(50% - 210px);
-	  width: 420px;
-	  text-align: center;
-	  font-family: Arial, Helvetica, sans-serif;
-	}
-	#num {
-	  position: relative;
-	  top: calc(50% - 210px - 1.5em);
-	  font-weight: bold;
-	  font-size: 1.5em;
-	}
-	#msg { top: calc(50% + 210px); }
-	#msg a { text-decoration: none; color: #3366BB; }
-	#msg a:hover { text-decoration: underline; }
+    #num, #msg {
+      position: relative;
+      left: calc(50% - 210px);
+      width: 420px;
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    #num {
+      position: relative;
+      top: calc(50% - 210px - 1.5em);
+      font-weight: bold;
+      font-size: 1.5em;
+    }
+    #msg { top: calc(50% + 210px); }
+    #msg a { text-decoration: none; color: #3366BB; }
+    #msg a:hover { text-decoration: underline; }
   </style>
 </head>
 <body><div id='body'><div id='num'></div><div id='msg'>Go to <a href="https://mathigon.org/tangram" target="_blank">mathigon.org/tangram</a> to play</div></div><script>
-	const max = 22;
-	function set_num(n) {
-	  let N = parseInt(window.location.hash.substr(1), 10);
-	  if (N && 0 < N && N < max) { n = N; }
-  	  let n_str = (n < 10 ? '0' : '') + n;
-	  document.getElementById('body').style.backgroundImage = `url('${n_str}.png')`;
-	  document.getElementById('num').innerText = `Tangram Picture #${n}`;
-	}
-	window.addEventListener("hashchange", set_num, false);
+    const max = 22;
+    function set_num(n) {
+      let N = parseInt(window.location.hash.substr(1), 10);
+      if (N && 0 < N && N < max) { n = N; }
+      let n_str = (n < 10 ? '0' : '') + n;
+      document.getElementById('body').style.backgroundImage = `url('${n_str}.png')`;
+      document.getElementById('num').innerText = `Tangram Picture #${n}`;
+    }
+    window.addEventListener("hashchange", set_num, false);
     set_num(Math.floor(Math.random() * max) + 1);
 </script></body>
 </html>
